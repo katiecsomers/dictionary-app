@@ -1,3 +1,11 @@
 .App {
 	text-align: center;
 }
+
+.App header {
+	margin: 30px;
+}
+
+.App footer {
+	margin: 30px;
+}
