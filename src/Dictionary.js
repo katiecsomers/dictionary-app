@@ -1,17 +1,28 @@
 import React, { useState } from "react";
 import "./Dictionary.css";
+import WordDisplay from "./WordDisplay.js";
+import axios from "axios";
 
 export default function Dictionary() {
-	const [searchedWord, setSearchedWord] = useState();
+	const [searchedWord, setSearchedWord] = useState(null);
+	const [wordData, setWordData] = useState(null);
 
 	function updateWord(event) {
-		console.log(event);
 		setSearchedWord(event.target.value);
 	}
 
 	function handleSubmit(event) {
 		event.preventDefault();
-		console.log(searchedWord);
+		let url = `https://api.dictionaryapi.dev/api/v2/entries/en/${searchedWord}`;
+
+		return axios
+			.get(url)
+			.then(function (response) {
+				setWordData(response.data[0]);
+			})
+			.catch(function (error) {
+				console.error(error);
+			});
 	}
 
 	return (
@@ -33,6 +44,7 @@ export default function Dictionary() {
 					Search
 				</button>
 			</form>
+			<WordDisplay data={wordData} />
 		</div>
 	);
 }
