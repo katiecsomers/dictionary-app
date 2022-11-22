@@ -1,5 +1,4 @@
 import React from "react";
-import Phonetics from "./Phonetics";
 import Synonyms from "./Synonyms";
 
 export default function Meanings(props) {
