@@ -4,26 +4,36 @@ import "./Phonetics.css";
 export default function Phonetics(props) {
 	if (props.Phonetics) {
 		return props.Phonetics.map(function (phonetic, index) {
-			return (
-				<div
-					className="Phonetics"
-					key={index}
-				>
-					<h5>{phonetic.text}</h5>
-					<audio
-						controls
-						key={phonetic.audio}
+			if (phonetic.audio) {
+				return (
+					<div
+						className="Phonetics"
+						key={index}
 					>
-						<source
-							src={phonetic.audio}
-							type="audio/mp3"
-						/>
-						Your browser does not support the audio element.
-					</audio>
-				</div>
-			);
+						<h5>{phonetic.text}</h5>
+						<audio
+							controls
+							key={phonetic.audio}
+						>
+							<source
+								src={phonetic.audio}
+								type="audio/mp3"
+							/>
+							Your browser does not support the audio element.
+						</audio>
+					</div>
+				);
+			} else {
+				return (
+					<div
+						className="Phonetics"
+						key={index}
+					>
+						<h5>{phonetic.text}</h5>
+						<p>No audio available</p>
+					</div>
+				);
+			}
 		});
-	} else {
-		return null;
 	}
 }

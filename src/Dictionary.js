@@ -22,7 +22,7 @@ export default function Dictionary() {
 		axios
 			.get(dictionaryUrl)
 			.then(function (response) {
-				setWordData(response.data[0]);
+				setWordData(response.data);
 			})
 			.catch(function (error) {
 				console.error(error);

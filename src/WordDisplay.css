@@ -3,13 +3,6 @@
 	border-top: 5px double gray;
 }
 
-.WordDisplay .synonyms {
-	display: inline;
-	font-style: italic;
-	opacity: 0.5;
-	font-weight: bold;
-}
-
 .WordDisplay h2 {
 	line-height: 1.5;
 	margin: 30px;

@@ -1,40 +1,20 @@
 import React from "react";
-import Phonetics from "./Phonetics";
 import "./WordDisplay.css";
+import Meanings from "./Meanings.js";
+import Phonetics from "./Phonetics";
 
 export default function WordDisplay(props) {
+	console.log(props.data);
 	if (props.data) {
-		let meanings = props.data.meanings;
-
 		return (
 			<div className="WordDisplay">
-				<h2>{props.data.word}</h2>
-				<Phonetics Phonetics={props.data.phonetics} />
+				<h2>{props.data[0].word}</h2>
+				<Phonetics Phonetics={props.data[0].phonetics} />
 
-				{meanings.map(function (meaning, index) {
+				{props.data.map(function (meanings, index) {
 					return (
 						<div key={index}>
-							<br />
-							<h4>{meaning.partOfSpeech}</h4>
-
-							<div className="definitions">
-								{meaning.definitions.map(function (definition, index) {
-									return <div key={index}> - {definition.definition}</div>;
-								})}
-							</div>
-							<div>
-								{meaning.synonyms.map(function (synonym, index) {
-									return (
-										<div
-											className="synonyms"
-											key={index}
-										>
-											{" "}
-											{synonym}
-										</div>
-									);
-								})}
-							</div>
+							<Meanings data={meanings} />{" "}
 						</div>
 					);
 				})}
