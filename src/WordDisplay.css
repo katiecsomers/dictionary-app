@@ -1,0 +1,10 @@
+.WordDisplay {
+	margin-bottom: 30px;
+}
+
+.WordDisplay .synonyms {
+	display: inline;
+	font-style: italic;
+	opacity: 0.6;
+	font-weight: bold;
+}

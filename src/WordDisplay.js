@@ -1,6 +1,6 @@
 import React from "react";
-
 import Phonetics from "./Phonetics";
+import "./WordDisplay.css";
 
 export default function WordDisplay(props) {
 	if (props.data) {
@@ -17,9 +17,22 @@ export default function WordDisplay(props) {
 							<br />
 							<h4>{meaning.partOfSpeech}</h4>
 
-							<div>
+							<div className="definitions">
 								{meaning.definitions.map(function (definition, index) {
 									return <div key={index}> - {definition.definition}</div>;
+								})}
+							</div>
+							<div>
+								{meaning.synonyms.map(function (synonym, index) {
+									return (
+										<div
+											className="synonyms"
+											key={index}
+										>
+											{" "}
+											{synonym}
+										</div>
+									);
 								})}
 							</div>
 						</div>

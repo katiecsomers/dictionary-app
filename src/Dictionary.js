@@ -1,11 +1,13 @@
 import React, { useState } from "react";
-import "./Dictionary.css";
-import WordDisplay from "./WordDisplay.js";
 import axios from "axios";
+import WordDisplay from "./WordDisplay.js";
+import PhotoDisplay from "./PhotoDisplay.js";
+import "./Dictionary.css";
 
 export default function Dictionary() {
 	const [searchedWord, setSearchedWord] = useState(null);
 	const [wordData, setWordData] = useState(null);
+	const [photoData, setPhotoData] = useState(null);
 
 	function updateWord(event) {
 		setSearchedWord(event.target.value);
@@ -13,12 +15,23 @@ export default function Dictionary() {
 
 	function handleSubmit(event) {
 		event.preventDefault();
-		let url = `https://api.dictionaryapi.dev/api/v2/entries/en/${searchedWord}`;
+		let dictionaryUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${searchedWord}`;
+		let photoUrlKey = "n1zEL9Tsb3NjDP0LPWtXzwIofF_4_5rIS6NcpsJRBvI";
+		let photoUrl = `https://api.unsplash.com/search/photos?page=1?&query=${searchedWord}&client_id=${photoUrlKey}`;
 
-		return axios
-			.get(url)
+		axios
+			.get(dictionaryUrl)
 			.then(function (response) {
 				setWordData(response.data[0]);
+			})
+			.catch(function (error) {
+				console.error(error);
+			});
+
+		axios
+			.get(photoUrl)
+			.then(function (response) {
+				setPhotoData(response.data.results);
 			})
 			.catch(function (error) {
 				console.error(error);
@@ -45,6 +58,7 @@ export default function Dictionary() {
 				</button>
 			</form>
 			<WordDisplay data={wordData} />
+			<PhotoDisplay data={photoData} />
 		</div>
 	);
 }
