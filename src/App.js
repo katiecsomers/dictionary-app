@@ -4,7 +4,7 @@ import Dictionary from "./Dictionary";
 
 function App() {
 	return (
-		<div className="App">
+		<div className="App container shadow">
 			<header>
 				<h1>Dictionary</h1>
 			</header>
@@ -27,6 +27,13 @@ function App() {
 					rel={"noreferrer"}
 				>
 					open source.
+				</a>{" "}
+				Photos by{" "}
+				<a
+					href="https://unsplash.com/"
+					target="blank"
+				>
+					Unsplash
 				</a>
 			</footer>
 		</div>

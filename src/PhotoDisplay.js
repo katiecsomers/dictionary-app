@@ -14,11 +14,16 @@ export default function PhotoDisplay(props) {
 								className="col-4 "
 								key={index}
 							>
-								<img
-									src={photo.urls.regular}
-									className="img-fluid"
-									alt={photo.alt_description}
-								/>
+								<a
+									href={photo.links.html}
+									target="_blank"
+								>
+									<img
+										src={photo.urls.regular}
+										className="img-fluid shadow"
+										alt={photo.alt_description}
+									/>
+								</a>
 							</div>
 						);
 					else {

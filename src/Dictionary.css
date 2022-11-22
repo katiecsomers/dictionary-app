@@ -1,4 +1,8 @@
 .Dictionary form {
-	margin: 30px 100px;
+	margin: 50px 100px;
 	max-width: 80%;
+}
+
+.Dictionary {
+	border-top: 5px double gray;
 }

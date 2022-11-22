@@ -41,7 +41,7 @@ export default function Dictionary() {
 	return (
 		<div className="Dictionary">
 			<form
-				className="input-group mb-3"
+				className="input-group"
 				onSubmit={handleSubmit}
 			>
 				<input

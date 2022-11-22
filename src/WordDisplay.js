@@ -8,7 +8,7 @@ export default function WordDisplay(props) {
 
 		return (
 			<div className="WordDisplay">
-				<h3>{props.data.word}</h3>
+				<h2>{props.data.word}</h2>
 				<Phonetics Phonetics={props.data.phonetics} />
 
 				{meanings.map(function (meaning, index) {
