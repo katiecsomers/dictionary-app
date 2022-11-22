@@ -32,6 +32,7 @@ function App() {
 				<a
 					href="https://unsplash.com/"
 					target="blank"
+					rel="noreferrer"
 				>
 					Unsplash
 				</a>

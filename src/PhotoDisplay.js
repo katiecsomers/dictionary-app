@@ -1,9 +1,8 @@
 import React from "react";
-import axios from "axios";
+
 import "./PhotoDisplay.css";
 
 export default function PhotoDisplay(props) {
-	console.log(props.data);
 	if (props.data) {
 		return (
 			<div className="PhotoDisplay row">
@@ -17,6 +16,7 @@ export default function PhotoDisplay(props) {
 								<a
 									href={photo.links.html}
 									target="_blank"
+									rel="noreferrer"
 								>
 									<img
 										src={photo.urls.regular}
